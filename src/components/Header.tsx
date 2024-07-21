@@ -9,7 +9,7 @@ export const Header = () => {
   });
   const { pathname } = useLocation();
   const isHome = useMemo(() => pathname === "/", [pathname]);
-  const {fetchCategories,categories } = useAppStore();
+  const {fetchCategories,categories,searchRecipes } = useAppStore();
   useEffect(() => {
     fetchCategories();
   },[])
@@ -21,6 +21,15 @@ export const Header = () => {
       [name]: value
     });
     
+  }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    //validar
+    if(Object.values(searchFilter).includes('')){
+
+    }
+
+    searchRecipes(searchFilter );
   }
   return (
     <header className={isHome ? "bg-header bg-center bg-cover" : "bg-slate-800"}>
@@ -68,7 +77,7 @@ export const Header = () => {
                 className="w-full p-3 rounded-lg focus:outline-none"
                 placeholder="Ej. tomate, lechuga, cebolla..."
                 onChange={handleChange}
-                value={searchFilter.ingridient}
+                value={searchFilter.ingredient}
               />
             </div>
 
