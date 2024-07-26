@@ -5,6 +5,7 @@ import { useAppStore } from "../stores/useAppStore";
 export default function Modal() {
   const modal = useAppStore((state) => state.modal);
   const closeModal = useAppStore((state) => state.CloseModal);
+  const selectedRecipe = useAppStore((state) => state.selectedRecipe);
   return (
     <>
       <Transition appear show={modal} as={Fragment}>
@@ -37,13 +38,18 @@ export default function Modal() {
                     as="h3"
                     className="text-gray-900 text-4xl font-extrabold my-5 text-center"
                   >
-                    Titulo Aquí
+                    {selectedRecipe.strDrink}
                   </Dialog.Title>
+                  <img
+                    src={selectedRecipe.strDrinkThumb}
+                    alt={selectedRecipe.strDrink}
+                    className="w-96 mx-auto"
+                  />
                   <Dialog.Title
                     as="h3"
                     className="text-gray-900 text-2xl font-extrabold my-5"
                   >
-                    Ingredientes y Cantidades
+                    Ingredientes y Cantidades hola
                   </Dialog.Title>
                   <Dialog.Title
                     as="h3"
@@ -51,6 +57,8 @@ export default function Modal() {
                   >
                     Instrucciones
                   </Dialog.Title>
+                  <p className="text-lg ">{selectedRecipe.strInstructions}</p>
+                    
                 </Dialog.Panel>
               </Transition.Child>
             </div>
