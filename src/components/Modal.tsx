@@ -78,7 +78,7 @@ export default function Modal() {
                   <div className="mt-5 flex justify-between gap-4">
                     <button
                       type="button"
-                      className="bg-orange-400 hover:bg-orange-600 p-3 w-full font-bold text-white text-lg "
+                      className="bg-red-500 hover:bg-red-600 p-3 w-full font-bold text-white text-lg "
                       onClick={closeModal}
                     >
                       Cerrar
