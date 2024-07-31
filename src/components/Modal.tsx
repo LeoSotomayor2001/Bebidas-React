@@ -7,6 +7,7 @@ export default function Modal() {
   const modal = useAppStore((state) => state.modal);
   const closeModal = useAppStore((state) => state.CloseModal);
   const selectedRecipe = useAppStore((state) => state.selectedRecipe);
+  const handleClickFavorite = useAppStore((state) => state.handleClickFavorite);
 
   const renderIngredients = () => {
     const ingredients: JSX.Element[] = [];
@@ -87,6 +88,7 @@ export default function Modal() {
                     <button
                       type="button"
                       className="bg-sky-600 hover:bg-sky-700 p-3 w-full font-bold text-white text-lg"
+                      onClick={() => handleClickFavorite(selectedRecipe)}
                     >
                       Agregar a favoritos
                     </button>
